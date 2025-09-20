@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+    <div class="container fade-in">
+        <div class="form-container">
+            <h1>➕ Thêm nhà cung cấp mới</h1>
+            <form method="POST" action="/suppliers">
+                <div class="form-group">
+                    <label>🏢 Tên nhà cung cấp:</label>
+                    <input type="text" name="name" class="form-control" placeholder="Nhập tên nhà cung cấp" required>
+                </div>
+
+                <div class="form-group">
+                    <label>📍 Địa chỉ:</label>
+                    <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ" required>
+                </div>
+
+                <div class="form-group">
+                    <label>📞 Số điện thoại:</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn btn-primary">💾 Lưu nhà cung cấp</button>
+                    <a href="/suppliers" class="btn btn-secondary">❌ Hủy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('../partials/footer') %>

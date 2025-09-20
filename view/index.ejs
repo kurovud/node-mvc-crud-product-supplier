@@ -1,0 +1,116 @@
+<%- include('partials/header') %>
+    <div class="container fade-in">
+        <div class="welcome-section">
+            <h1>🏪 Product-Supplier Management System</h1>
+            <p>Quản lý sản phẩm và nhà cung cấp một cách hiệu quả và chuyên nghiệp</p>
+        </div>
+
+        <div class="quick-actions">
+            <div class="quick-action-card">
+                <span class="icon">📦</span>
+                <h3>Quản lý Sản phẩm</h3>
+                <p>Thêm, sửa, xóa và quản lý danh sách sản phẩm</p>
+                <a href="/products" class="btn btn-primary">Xem Sản phẩm</a>
+            </div>
+
+            <div class="quick-action-card">
+                <span class="icon">🏢</span>
+                <h3>Quản lý Nhà cung cấp</h3>
+                <p>Thêm, sửa, xóa và quản lý thông tin nhà cung cấp</p>
+                <a href="/suppliers" class="btn btn-primary">Xem Nhà cung cấp</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📊 Thống kê nhanh</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="text-align: center; padding: 25px; background: linear-gradient(45deg, #74b9ff, #0984e3); color: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(116, 185, 255, 0.3);">
+                    <div style="font-size: 3em; margin-bottom: 10px;">📦</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2em;">Tổng Sản phẩm</h3>
+                    <p style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">
+                        <%= productCount %>
+                    </p>
+                    <p style="opacity: 0.8; font-size: 0.9em;">
+                        <% if(productCount === 0) { %>Chưa có sản phẩm
+                            <% } else { %>sản phẩm
+                                <% } %>
+                    </p>
+                    <a href="/products" style="color: white; text-decoration: underline; opacity: 0.8;">Xem chi tiết →</a>
+                </div>
+
+                <div style="text-align: center; padding: 25px; background: linear-gradient(45deg, #00b894, #00a085); color: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 184, 148, 0.3);">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🏢</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2em;">Tổng Nhà cung cấp</h3>
+                    <p style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">
+                        <%= supplierCount %>
+                    </p>
+                    <p style="opacity: 0.8; font-size: 0.9em;">
+                        <% if(supplierCount === 0) { %>Chưa có nhà cung cấp
+                            <% } else { %>nhà cung cấp
+                                <% } %>
+                    </p>
+                    <a href="/suppliers" style="color: white; text-decoration: underline; opacity: 0.8;">Xem chi tiết →</a>
+                </div>
+
+                <div style="text-align: center; padding: 25px; background: linear-gradient(45deg, #fd79a8, #e84393); color: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(253, 121, 168, 0.3);">
+                    <div style="font-size: 3em; margin-bottom: 10px;">💰</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.2em;">Tổng giá trị hàng</h3>
+                    <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">
+                        <%= totalValue.toLocaleString('vi-VN') %>
+                    </div>
+                    <p style="opacity: 0.8; font-size: 0.9em;">VNĐ</p>
+                    <p style="opacity: 0.7; font-size: 0.8em;">Tổng giá trị tồn kho</p>
+                </div>
+            </div>
+
+            <% if(productCount > 0 || supplierCount > 0) { %>
+                <div style="margin-top: 30px; padding: 20px; background: linear-gradient(45deg, #a29bfe, #6c5ce7); border-radius: 15px; color: white; text-align: center;">
+                    <h3>🎉 Tuyệt vời!</h3>
+                    <p>Hệ thống đã có <strong><%= productCount %> sản phẩm</strong> từ <strong><%= supplierCount %> nhà cung cấp</strong></p>
+                    <p style="opacity: 0.9;">Tổng giá trị hàng tồn kho: <strong><%= totalValue.toLocaleString('vi-VN') %> VNĐ</strong></p>
+                </div>
+                <% } else { %>
+                    <div style="margin-top: 30px; padding: 20px; background: linear-gradient(45deg, #fab1a0, #e17055); border-radius: 15px; color: white; text-align: center;">
+                        <h3>🚀 Bắt đầu ngay!</h3>
+                        <p>Hãy thêm nhà cung cấp và sản phẩm đầu tiên để bắt đầu quản lý!</p>
+                        <div style="margin-top: 15px;">
+                            <a href="/suppliers/new" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">➕ Thêm nhà cung cấp</a>
+                            <a href="/products/new" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">➕ Thêm sản phẩm</a>
+                        </div>
+                    </div>
+                    <% } %>
+        </div>
+
+        <% if(typeof recentProducts !== 'undefined' && recentProducts.length > 0) { %>
+            <div class="card">
+                <h2>📋 Sản phẩm mới nhất</h2>
+                <div style="margin-top: 20px;">
+                    <% if(typeof recentProducts !== 'undefined' && recentProducts.length > 0) { %>
+                        <% recentProducts.forEach(product => { %>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; margin: 10px 0; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #74b9ff;">
+                                <div>
+                                    <h4 style="margin: 0; color: #2c3e50;">📱
+                                        <%= product.name %>
+                                    </h4>
+                                    <p style="margin: 5px 0; color: #7f8c8d;">🏢
+                                        <%= product.supplierId ? product.supplierId.name : 'Chưa có nhà cung cấp' %>
+                                    </p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="margin: 0; font-weight: bold; color: #27ae60;">
+                                        <%= product.price.toLocaleString('vi-VN') %> VNĐ</p>
+                                    <p style="margin: 5px 0; color: #7f8c8d;">Số lượng:
+                                        <%= product.quantity %>
+                                    </p>
+                                </div>
+                            </div>
+                            <% }) %>
+                                <% } %>
+                                    <div style="text-align: center; margin-top: 20px;">
+                                        <a href="/products" class="btn btn-primary">Xem tất cả sản phẩm</a>
+                                    </div>
+                </div>
+            </div>
+            <% } %>
+    </div>
+    <%- include('partials/footer') %>

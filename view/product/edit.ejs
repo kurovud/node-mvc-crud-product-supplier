@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+    <div class="container fade-in">
+        <div class="form-container">
+            <h1>✏️ Chỉnh sửa sản phẩm</h1>
+            <% if (typeof error !== 'undefined' && error) { %>
+                <div class="alert alert-danger" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #f5c6cb;">
+                    <strong>⚠️ Lỗi:</strong>
+                    <%= error %>
+                </div>
+                <% } %>
+                    <form method="POST" action="/products/<%= product._id %>?_method=PUT">
+                        <div class="form-group">
+                            <label>📱 Tên sản phẩm:</label>
+                            <input type="text" name="name" class="form-control" value="<%= product.name %>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>💰 Giá (VNĐ):</label>
+                            <input type="number" name="price" class="form-control" value="<%= product.price %>" step="1000" min="1000" max="999999999000" required>
+                            <small style="color: #7f8c8d;">Giá từ 1,000 VNĐ đến 999,999,999,000 VNĐ</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>📊 Số lượng:</label>
+                            <input type="number" name="quantity" class="form-control" value="<%= product.quantity %>" min="1" max="999999" required>
+                            <small style="color: #7f8c8d;">Số lượng từ 1 đến 999,999 sản phẩm</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>🏢 Nhà cung cấp:</label>
+                            <select name="supplierId" class="form-control" required>
+                    <% suppliers.forEach(s => { %>
+                        <option value="<%= s._id %>" <%= s._id.equals(product.supplierId) ? 'selected' : '' %>><%= s.name %></option>
+                    <% }) %>
+                </select>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="btn btn-primary">💾 Cập nhật</button>
+                            <a href="/products" class="btn btn-secondary">❌ Hủy</a>
+                        </div>
+                    </form>
+        </div>
+    </div>
+    <%- include('../partials/footer') %>

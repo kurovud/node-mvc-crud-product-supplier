@@ -1,0 +1,447 @@
+/* Alert styles */
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+
+/* Reset và base styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+
+/* Header và Navigation */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Card Layouts */
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Forms */
+
+.form-container {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1,
+.form-container h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.form-control,
+form input,
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-control:focus,
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+    transform: scale(1.02);
+}
+
+
+/* Item actions styling */
+
+.item-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item-actions form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.item-actions .btn {
+    margin: 0;
+    white-space: nowrap;
+}
+
+
+/* Buttons */
+
+.btn,
+button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover,
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary,
+button[type="submit"] {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+}
+
+.btn-danger,
+button.btn-danger,
+form button[type="submit"].btn-danger {
+    background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
+    color: white !important;
+    border: none !important;
+    position: relative !important;
+    z-index: 10 !important;
+    overflow: visible !important;
+    text-shadow: none !important;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3) !important;
+}
+
+.btn-danger:hover,
+button.btn-danger:hover,
+form button[type="submit"].btn-danger:hover {
+    background: linear-gradient(45deg, #c0392b, #a93226) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4) !important;
+}
+
+.btn-danger::before,
+button.btn-danger::before,
+form button[type="submit"].btn-danger::before,
+.btn-danger::after,
+button.btn-danger::after,
+form button[type="submit"].btn-danger::after {
+    display: none !important;
+    content: none !important;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+    color: white;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+
+/* Lists */
+
+.item-list,
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item-card,
+li {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.item-card:hover,
+li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left-color: #e74c3c;
+}
+
+
+/* Price styling */
+
+.price {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+/* Error Messages */
+
+.error-container {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(238, 90, 82, 0.3);
+    margin: 20px 0;
+}
+
+.error-container h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.error-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+
+/* Welcome Section */
+
+.welcome-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    border-radius: 20px;
+    color: white;
+    margin: 30px 0;
+}
+
+.welcome-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+
+/* Quick Actions */
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.quick-action-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.quick-action-card:hover {
+    transform: translateY(-10px);
+}
+
+.quick-action-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.quick-action-card .icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+
+/* Forms styling */
+
+form {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+    nav a {
+        display: block;
+        margin: 5px 0;
+        padding: 8px 15px;
+    }
+    .btn,
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 5px 2px;
+    }
+    form input,
+    form select {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+/* Animation */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}

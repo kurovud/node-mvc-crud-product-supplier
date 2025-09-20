@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+    <div class="container fade-in">
+        <div class="header">
+            <h1>📦 Danh sách Sản phẩm</h1>
+            <a href="/products/new" class="btn btn-primary">➕ Thêm sản phẩm mới</a>
+        </div>
+
+        <% if(products.length === 0) { %>
+            <div class="card" style="text-align: center; padding: 50px;">
+                <h2>📭 Chưa có sản phẩm nào</h2>
+                <p>Hãy thêm sản phẩm đầu tiên để bắt đầu!</p>
+                <a href="/products/new" class="btn btn-primary">➕ Thêm sản phẩm</a>
+            </div>
+            <% } else { %>
+                <ul class="item-list">
+                    <% products.forEach(p => { %>
+                        <li class="item-card">
+                            <div class="item-info">
+                                <div class="item-details">
+                                    <h3>📱
+                                        <%= p.name %>
+                                    </h3>
+                                    <p><strong>💰 Giá:</strong> <span class="price"><%= p.price.toLocaleString('vi-VN') %> VNĐ</span></p>
+                                    <p><strong>📊 Số lượng:</strong>
+                                        <%= p.quantity %>
+                                    </p>
+                                    <p><strong>🏢 Nhà cung cấp:</strong>
+                                        <%= p.supplierId ? p.supplierId.name : "Chưa có" %>
+                                    </p>
+                                </div>
+                                <div class="item-actions">
+                                    <a href="/products/<%= p._id %>/edit" class="btn btn-secondary">✏️ Sửa</a>
+                                    <form method="POST" action="/products/<%= p._id %>?_method=DELETE" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">🗑 Xóa</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+    </div>
+    <%- include('../partials/footer') %>
